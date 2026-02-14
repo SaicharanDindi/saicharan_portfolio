@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sai Charan Dindi | Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        /* Header Section */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .profile-name {
+            font-size: 2.8em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .profile-title {
+            font-size: 1.3em;
+            opacity: 0.95;
+            margin-bottom: 25px;
+            font-weight: 300;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            font-size: 1.1em;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-item i {
+            font-size: 1.2em;
+        }
+
+        .social-links {
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 25px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .social-links a:hover {
+            background: white;
+            color: #667eea;
+            border-color: white;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 40px;
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 40px;
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: #333;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            display: inline-block;
+        }
+
+        /* Education */
+        .education-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .edu-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .edu-subtitle {
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .edu-date {
+            background: #667eea;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        /* Skills */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.1);
+        }
+
+        .skill-category h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background: #f0f2f5;
+            color: #333;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            transition: all 0.3s;
+        }
+
+        .skill-tag:hover {
+            background: #667eea;
+            color: white;
+            cursor: default;
+        }
+
+        /* Experience & Projects */
+        .exp-item, .project-item {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.3s;
+        }
+
+        .exp-item:hover, .project-item:hover {
+            transform: translateX(10px);
+        }
+
+        .exp-header, .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
+        .exp-title, .project-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .exp-company {
+            color: #667eea;
+            font-weight: 500;
+        }
+
+        .exp-date, .project-tech {
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        .project-tech {
+            background: #e8f0fe;
+            padding: 5px 12px;
+            border-radius: 15px;
+        }
+
+        .exp-desc, .project-desc {
+            color: #555;
+            line-height: 1.6;
+            margin-top: 10px;
+        }
+
+        .exp-desc ul, .project-desc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .exp-desc li, .project-desc li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .exp-desc li:before, .project-desc li:before {
+            content: "▹";
+            color: #667eea;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Certifications */
+        .certs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .cert-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 1px solid #e0e0e0;
+        }
+
+        .cert-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+        }
+
+        .cert-item h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .cert-link {
+            display: inline-block;
+            margin-top: 10px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .cert-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Achievements */
+        .achievements-list {
+            display: grid;
+            gap: 15px;
+        }
+
+        .achievement-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s;
+        }
+
+        .achievement-item:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .achievement-icon {
+            font-size: 2em;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .profile-name {
+                font-size: 2em;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .main-content {
+                padding: 20px;
+            }
+            
+            .exp-header, .project-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1 class="profile-name">Sai Charan Dindi</h1>
+            <p class="profile-title">B.Tech Computer Science @ GITAM University | Full-Stack Developer | AI/ML Enthusiast</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">📞 +91 9618619374</div>
+                <div class="contact-item">✉️ sc31072004@gmail.com</div>
+                <div class="contact-item">📍 Visakhapatnam, AP</div>
+            </div>
+            
+            <div class="social-links">
+                <a href="https://linkedin.com/in/dindi-sai-charan" target="_blank">LinkedIn</a>
+                <a href="https://github.com/SaicharanDindi" target="_blank">GitHub</a>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Education -->
+            <section class="section">
+                <h2 class="section-title">Education</h2>
+                <div class="education-item">
+                    <div>
+                        <h3 class="edu-title">GITAM University, Visakhapatnam</h3>
+                        <p class="edu-subtitle">B.Tech in Computer Science</p>
+                    </div>
+                    <span class="edu-date">2022 - 2026</span>
+                </div>
+            </section>
+
+            <!-- Technical Skills -->
+            <section class="section">
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="skills-container">
+                    <div class="skill-category">
+                        <h3>Programming</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Java</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">SQL</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Web & Frameworks</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">HTML</span>
+                            <span class="skill-tag">CSS</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">Flask</span>
+                            <span class="skill-tag">React</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Tools</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">Linux</span>
+                            <span class="skill-tag">Selenium</span>
+                            <span class="skill-tag">Postman</span>
+                            <span class="skill-tag">OpenCV</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Core Concepts</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">DSA</span>
+                            <span class="skill-tag">OOPs</span>
+                            <span class="skill-tag">DBMS</span>
+                            <span class="skill-tag">Agile</span>
+                            <span class="skill-tag">Testing</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Experience -->
+            <section class="section">
+                <h2 class="section-title">Experience</h2>
+                
+                <div class="exp-item">
+                    <div class="exp-header">
+                        <div>
+                            <span class="exp-title">Student Developer</span>
+                            <span class="exp-company"> @ Next Chapter Skill (Remote)</span>
+                        </div>
+                        <span class="exp-date">May 2024 - Jul 2024</span>
+                    </div>
+                    <div class="exp-desc">
+                        <ul>
+                            <li>Developed and tested full-stack web applications using Flask and React</li>
+                            <li>Integrated machine learning models and performed validation testing</li>
+                            <li>Worked in Agile teams to enhance healthcare-based applications</li>
+                            <li>Improved application reliability through systematic testing and debugging</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="exp-item">
+                    <div class="exp-header">
+                        <div>
+                            <span class="exp-title">Web Development Intern</span>
+                            <span class="exp-company"> @ Intermpe (Remote)</span>
+                        </div>
+                        <span class="exp-date">May 2023 - Jun 2023</span>
+                    </div>
+                    <div class="exp-desc">
+                        <ul>
+                            <li>Designed responsive web pages using HTML, CSS, and JavaScript</li>
+                            <li>Debugged and optimized application performance</li>
+                            <li>Collaborated with team members following development best practices</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects -->
+            <section class="section">
+                <h2 class="section-title">Projects</h2>
+                
+                <div class="project-item">
+                    <div class="project-header">
+                        <span class="project-title">Disease Prediction System</span>
+                        <span class="project-tech">Flask, React, ML</span>
+                    </div>
+                    <div class="project-desc">
+                        <ul>
+                            <li>Developed a web application to predict diseases based on user symptoms</li>
+                            <li>Implemented machine learning models for classification</li>
+                            <li>Performed data preprocessing using Pandas and Scikit-learn</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <span class="project-title">Real-Time Number Plate Detection</span>
+                        <span class="project-tech">OpenCV, YOLOv4</span>
+                    </div>
+                    <div class="project-desc">
+                        <ul>
+                            <li>Implemented automatic vehicle number plate detection from video streams</li>
+                            <li>Applied computer vision techniques for real-time detection</li>
+                            <li>Evaluated detection accuracy using validation metrics</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Certifications -->
+            <section class="section">
+                <h2 class="section-title">Certifications</h2>
+                <div class="certs-grid">
+                    <div class="cert-item">
+                        <h4>Full Stack AIML Certification</h4>
+                        <a href="#" class="cert-link">View Certificate →</a>
+                    </div>
+                    <div class="cert-item">
+                        <h4>Web Development Certification</h4>
+                        <a href="#" class="cert-link">View Certificate →</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Achievements -->
+            <section class="section">
+                <h2 class="section-title">Achievements</h2>
+                <div class="achievements-list">
+                    <div class="achievement-item">
+                        <span class="achievement-icon">📄</span>
+                        <span>Co-authored a research paper on "Explainable AI in Object Detection"</span>
+                    </div>
+                    <div class="achievement-item">
+                        <span class="achievement-icon">🏆</span>
+                        <span>Participated in college-level technical and sports events</span>
+                    </div>
+                    <div class="achievement-item">
+                        <span class="achievement-icon">👥</span>
+                        <span>Active member of GUSAC Club, GITAM University</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- JavaScript for Interactive Elements -->
+    <script>
+        // Smooth scroll animation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add hover effect to skills
+        const skillTags = document.querySelectorAll('.skill-tag');
+        skillTags.forEach(tag => {
+            tag.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.05)';
+            });
+            tag.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+
+        // Dynamic year update for copyright (if you add footer later)
+        const year = new Date().getFullYear();
+        console.log(`Portfolio ${year} - Sai Charan Dindi`);
+
+        // Add click animation to project items
+        const projectItems = document.querySelectorAll('.project-item, .exp-item');
+        projectItems.forEach(item => {
+            item.addEventListener('click', function() {
+                this.style.backgroundColor = '#f0f4ff';
+                setTimeout(() => {
+                    this.style.backgroundColor = 'white';
+                }, 200);
+            });
+        });
+
+        // Typewriter effect for profile title (optional)
+        const titleElement = document.querySelector('.profile-title');
+        const originalText = titleElement.textContent;
+        
+        // You can uncomment this if you want a cool typing effect
+        /*
+        titleElement.textContent = '';
+        let i = 0;
+        function typeWriter() {
+            if (i < originalText.length) {
+                titleElement.textContent += originalText.charAt(i);
+                i++;
+                setTimeout(typeWriter, 50);
+            }
+        }
+        typeWriter();
+        */
+
+        // Add tooltip for contact items
+        const contactItems = document.querySelectorAll('.contact-item');
+        contactItems.forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.opacity = '0.8';
+            });
+            item.addEventListener('mouseleave', function() {
+                this.style.opacity = '1';
+            });
+        });
+
+        // Alert for certificate links (temporary, replace with real links)
+        document.querySelectorAll('.cert-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                alert('Certificate link will be updated soon!');
+            });
+        });
+    </script>
+</body>
+</html>
